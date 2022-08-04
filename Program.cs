@@ -102,14 +102,36 @@ public class Program
             b--;
         }
 
+        //exercise 13
+
         int param1 = 2;
         int param2 = 2;
         int param3 = Foo(param1, param2);
         Console.WriteLine(param3);
-    }
 
+        //exercise 14
+        Car car1 = new();
+        Car car2 = new();
+        Car car3 = new();
+
+        // test code
+        Console.WriteLine(car1.numTires);
+        Console.WriteLine(car2.year);
+        Console.WriteLine(car3.runs);
+    }
+    
+    //exercise 13
     private static int Foo(int param1, int param2)
     {
         return param1 / param2;
     }
+
+    //exercise 14
+    public class Car
+    {
+        public int numTires { get; set; } = 4;
+        public int year { get; set; } = 2000;
+        public bool runs { get; set; } = true;
+    }
+
 }
