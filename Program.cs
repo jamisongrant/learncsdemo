@@ -158,12 +158,12 @@ public class Program
     //exercises 15 & 16
     public class Vehicle
     {
-        private string? _type;
+        private string? _type = String.Empty;
         public string Type
         {
             get
             {
-                return _type ?? "";
+                return _type ?? String.Empty;
             }
             set
             {
