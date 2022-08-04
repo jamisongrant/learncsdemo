@@ -115,9 +115,30 @@ public class Program
         Car car3 = new();
 
         // test code
-        Console.WriteLine(car1.numTires);
-        Console.WriteLine(car2.year);
-        Console.WriteLine(car3.runs);
+        Console.WriteLine(car1.NumTires);
+        Console.WriteLine(car2.Year);
+        Console.WriteLine(car3.Runs);
+
+        //exercise 15 & 16
+        Vehicle car = new("car", 4, 2000, true);
+        Vehicle oldcar = new("car", 4, 1980, false);
+        Vehicle bike = new("bike", 2, 2017, true);
+
+        // test code
+        Console.WriteLine(car.Type);
+        Console.WriteLine(oldcar.Runs);
+        Console.WriteLine(bike.NumTires);
+
+        // test code
+        Vehicle myRide = new();
+        myRide.Type = "Motorcycle";
+        myRide.NumTires = 2;
+        Console.WriteLine(myRide.Type);
+        Console.WriteLine(myRide.NumTires);
+        myRide.Type = String.Empty;
+        Console.WriteLine(myRide.Type);
+        myRide.NumTires = 0;
+        Console.WriteLine(myRide.NumTires);
     }
     
     //exercise 13
@@ -129,9 +150,68 @@ public class Program
     //exercise 14
     public class Car
     {
-        public int numTires { get; set; } = 4;
-        public int year { get; set; } = 2000;
-        public bool runs { get; set; } = true;
+        public int NumTires { get; set; } = 4;
+        public int Year { get; set; } = 2000;
+        public bool Runs { get; set; } = true;
     }
 
+    //exercises 15 & 16
+    public class Vehicle
+    {
+        private string? _type;
+        public string Type
+        {
+            get
+            {
+                return _type ?? "";
+            }
+            set
+            {
+                if (value == String.Empty)
+                {
+                    Console.WriteLine("The vehicle type cannot be empty");
+                }
+                _type = value;
+            }
+        }
+
+        private int? _numTires;
+        public int NumTires
+        {
+            get
+            {
+                return _numTires ?? 0;
+            }
+            set
+            {
+                if (value < 1)
+                {
+                    Console.WriteLine("The vehicle must have at least one tire");
+                }
+                else _numTires = value;
+            }
+        }
+
+        public int Year { get; set; } = 2000;
+        public bool Runs { get; set; } = true;
+
+        public Vehicle()
+        {
+
+        }
+
+        public Vehicle(string type, int numTires)
+        {
+            Type = type;
+            NumTires = numTires;
+        }
+
+        public Vehicle(string type, int numTires, int year, bool runs)
+        {
+            Type = type;
+            NumTires = numTires;
+            Year = year;
+            Runs = runs;
+        }
+    }
 }
